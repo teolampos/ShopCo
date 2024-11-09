@@ -1,5 +1,5 @@
 import { useState } from "react";
-import StarsRating from "../../../shared/icons/StarsRating";
+import StarsRating from "./StarsRating";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
