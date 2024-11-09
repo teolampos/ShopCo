@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
-import CloseIcon from "./components/CloseIcon";
-import CartIcon from "./components/CartIcon";
-import AcountIcon from "./components/AcountIcon";
-import ArrowDown from "./components/ArrowDown";
-import SearchIcon, { SearchIconBold } from "./components/SearchIcon";
-import StarIcon from "./components/StarIcon";
+import { useEffect, useState } from "react";
+import CloseIcon from "../../shared/icons/CloseIcon";
+import CartIcon from "../../shared/icons/CartIcon";
+import AcountIcon from "../../shared/icons/AcountIcon";
+import ArrowDown from "../../shared/icons/ArrowDown";
+import SearchIcon, { SearchIconBold } from "../../shared/icons/SearchIcon";
+import StarIcon from "../../shared/icons/StarIcon";
 import ProductList, { ProductSort } from "./components/ProductList";
-import EmailIcon from "./components/EmailIcon";
-import TwitterIcon from "./components/TwitterIcon";
-import FacebookIcon from "./components/FacebookIcon";
-import InstagramIcon from "./components/InstagramIcon";
-import GithubIcon from "./components/GithubIcon";
-import VisaIcon from "./components/VisaIcon";
-import MasterCardIcon from "./components/MasterCardIcon";
-import PaypalIcon from "./components/PaypalIcon";
-import ApplePayIcon from "./components/ApplePay";
-import GooglePayAction from "./components/GooglePayIcon";
-import HamburgerIcon from "./components/HamburgerIcon";
+import EmailIcon from "../../shared/icons/EmailIcon";
+import TwitterIcon from "../../shared/icons/TwitterIcon";
+import FacebookIcon from "../../shared/icons/FacebookIcon";
+import InstagramIcon from "../../shared/icons/InstagramIcon";
+import GithubIcon from "../../shared/icons/GithubIcon";
+import VisaIcon from "../../shared/icons/VisaIcon";
+import MasterCardIcon from "../../shared/icons/MasterCardIcon";
+import PaypalIcon from "../../shared/icons/PaypalIcon";
+import ApplePayIcon from "../../shared/icons/ApplePay";
+import GooglePayAction from "../../shared/icons/GooglePayIcon";
+import HamburgerIcon from "../../shared/icons/HamburgerIcon";
 
 export default function Homepage() {
   const [products, setProducts] = useState([]);
@@ -233,7 +233,7 @@ export default function Homepage() {
       </div>
 
       {/*Footer Section */}
-      <div className=" mt-[250px] lg:mr-[9px] px-[15px] py-[110px]  pb-[70px]  relative bg-[#F0F0F0] ">
+      <div className=" mt-[250px] lg:mr-[9px] px-[20px] lg:px-[50px] py-[110px]  pb-[70px]   relative bg-[#F0F0F0] ">
         {/*Subscribe Section */}
         <div className=" min-h-[293px] px-[20px] lg:px-[64px] py-[36px] absolute top-[-170px] right-[3%] left-[3%] bg-black rounded-[20px] flex flex-col lg:flex-row gap-6 lg:justify-between items-center">
           <p className=" lg:max-w-[40%] text-[32px] leading-[35px] lg:text-[40px] lg:leading-[45px] text-center lg:text-left text-white font-[Integral-FC] ">

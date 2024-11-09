@@ -5,7 +5,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
-      <Route path="*" element={<Navigate to={"/"} />} />
+      {/*Redirect if path is not '/' */}
+      <Route path="*" element={<Navigate to={"/"} />} />{" "}
     </Routes>
   );
 }

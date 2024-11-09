@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import StarsRating from "./StarsRating";
+import { useState } from "react";
+import StarsRating from "../../../shared/icons/StarsRating";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
@@ -39,6 +39,7 @@ function ProductList({ title, products }: Props) {
         {title}
       </p>
 
+      {/* We make use of SwiperJs, a library for creating simple and interactive swiper elements*/}
       <Swiper
         slidesPerView={1.7}
         spaceBetween={20}

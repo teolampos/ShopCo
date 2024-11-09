@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import convertRateToStarWidths from "../../../helpers/convertRateToStarWidths";
+import convertRateToStarWidths from "../../helpers/convertRateToStarWidths";
 
 interface Props {
   rate: number;
