@@ -1,8 +1,9 @@
 import React from "react";
 interface Props {
   className: string;
+  handleClick: any;
 }
-function HamburgerIcon({ className }: Props) {
+function HamburgerIcon({ className, handleClick }: Props) {
   return (
     <svg
       width="18px"
@@ -11,6 +12,7 @@ function HamburgerIcon({ className }: Props) {
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      onClick={handleClick}
     >
       <title>menu</title>
       <desc>Created with Sketch.</desc>

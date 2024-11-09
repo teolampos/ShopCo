@@ -21,6 +21,7 @@ import HamburgerIcon from "./components/HamburgerIcon";
 export default function Homepage() {
   const [products, setProducts] = useState([]);
   const [showBanner, setShowBanner] = useState(true);
+  const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
 
   const fetchProducts = async () => {
     const resp = await fetch("https://fakestoreapi.com/products");
@@ -52,9 +53,43 @@ export default function Homepage() {
 
       {/*Top Section*/}
       <div className=" lg:ml-[10px]  lg:px-[30px] xl:px-[60px]  bg-[#F2F0F1]  relative ">
+        {/*Hamburger Menu for Smaller Devices*/}
+        {showHamburgerMenu && (
+          <ul className="min-h-[200px] min-w-[40%] absolute top-[5%] p-[10px] rounded-[20px] flex flex-col  bg-white text-black transition-all ">
+            <a
+              href="/"
+              className="p-[10px] rounded-[20px] flex items-center gap-[2px] hover:bg-black hover:text-white transition-all "
+            >
+              Shop
+              <ArrowDown className="w-[20px] h-[20px] " />
+            </a>
+            <a
+              href="/"
+              className="p-[10px] rounded-[20px] hover:bg-black hover:text-white transition-all ease-linear"
+            >
+              On Sale
+            </a>
+            <a
+              href="/"
+              className="p-[10px] rounded-[20px] hover:bg-black hover:text-white transition-all ease-linear"
+            >
+              New Arrivals
+            </a>
+            <a
+              href="/"
+              className="p-[10px] rounded-[20px] hover:bg-black hover:text-white transition-all ease-linear"
+            >
+              Brands
+            </a>
+          </ul>
+        )}
+        {/*Header - Search Bar*/}
         <div className="w-full h-[48px]  py-[30px] lg:py-[50px] px-[15px]  lg:px-0 flex justify-between items-center  lg:gap-[40px] bg-white lg:bg-transparent">
           <div className="flex items-baseline gap-3">
-            <HamburgerIcon className="block lg:hidden w-[18.75px] h-[14.25px] cursor-pointer" />
+            <HamburgerIcon
+              className="block lg:hidden w-[18.75px] h-[14.25px] cursor-pointer"
+              handleClick={() => setShowHamburgerMenu(!showHamburgerMenu)}
+            />
             <a
               href="/"
               className="text-[25.2px] lg:text-[40px] leading-[30.24px] lg:leading-[38.4px] font-[Integral-FC]"
@@ -95,6 +130,8 @@ export default function Homepage() {
             </a>
           </div>
         </div>
+
+        {/*Top Section - Main Content*/}
         <div className="pt-[40px] flex  flex-col lg:flex-row ">
           <div className="lg:w-[50%] px-[15px] flex flex-col gap-[20px] ">
             <p className="sm:max-lg:w-[70%] text-[36px] lg:text-[54px] xl:text-[64px] leading-[34px] lg:leading-[64px] font-[Integral-FC]  ">
@@ -105,9 +142,12 @@ export default function Homepage() {
               designed to bring out your individuality and cater to your sense
               of style.
             </span>
-            <button className="sm:w-[40%] align-left  py-[15px] px-[54px] border-black border-[1px] rounded-[62px] bg-black text-white font-[Satoshi] hover:bg-white hover:text-black">
+            <a
+              href="#newArrivals"
+              className="sm:w-[40%] align-left  py-[15px] px-[54px] border-black border-[1px] rounded-[62px] bg-black text-white text-center font-[Satoshi] hover:bg-white hover:text-black"
+            >
               Shop Now
-            </button>
+            </a>
             <div className=" sm:max-lg:w-[80%] lg-w-full  lg:mt-[25px] mb-[20px] flex  flex-wrap justify-center sm:max-lg:justify-start  gap-5 xl:flex-nowrap lg:justify-normal lg:gap-[32px]   ">
               <div className="pr-[20px] flex flex-col border-r-[1px] border-gray-300 ">
                 <span className=" text-[24px] leading-[32.4px] lg:text-[40px] lg:leading-[54px] font-[Satoshi-Bold]">
@@ -135,6 +175,8 @@ export default function Homepage() {
               </div>
             </div>
           </div>
+
+          {/*Couple Image*/}
           <div className="lg:w-[50%]">
             <div className="relative w-[100%] min-h-[400px] lg:min-h-full  bg-[length:390px_600px] lg:bg-[length:600px_1000px] lg:bg-[-50px_-130px] bg-center  bg-no-repeat   bg-[url('../public/couple.jpeg')] ">
               <StarIcon className="w-[44px] lg:w-[56px] h-[41.65px] lg:h-[50px] absolute top-[20%] left-[3%] sm:top-[40%] sm:left-[15%] md:top[50%] md:left-[20%] lg:left-[5%]  z-[1]" />
@@ -152,7 +194,7 @@ export default function Homepage() {
       {/*Top Selling Section*/}
       <ProductList title={ProductSort.TOP_SELLING} products={products} />
 
-      {/*Browse By Dress Style Section */}
+      {/*Dress Styles Section */}
       <div className="min-h-[850px] mx-[10px] py-[30px] lg:py-[70px] md:mx-[80px] lg:mx-[60px] lg:px-[10px] bg-[#F0F0F0] rounded-[40px]">
         <p className=" text-[32px] leading-[36px] lg:text-[48px] lg:leading-[57.6px] text-center px-[5px] mt-[30px] font-[Integral-FC]  ">
           BROWSE BY DRESS STYLE
@@ -167,7 +209,7 @@ export default function Homepage() {
               </span>
             </div>
             <div className="relative bg-white h-[190px] lg:h-[289px] min-w-[70%] rounded-[20px]">
-              <div className=" rounded-[20px] w-full h-full  bg-[-17px_-80px] min-[580px]:bg-[300px_-80px] lg:bg-[120px_-120px] bg-[length:709px_470px] lg:bg-[length:800px_700px] bg-no-repeat  bg-[url('../public/formal.png')]"></div>
+              <div className=" rounded-[20px] w-full h-full  bg-[-17px_-80px] min-[580px]:bg-[300px_-80px] lg:bg-[120px_-120px] xl:bg-[420px_-120px] bg-[length:709px_470px] lg:bg-[length:800px_700px] bg-no-repeat  bg-[url('../public/formal.png')]"></div>
               <span className="absolute z-[1] top-[25px] left-[24px] lg:left-[36px] text-[24px] leading-[32.4px] lg:text-[36px] lg:leading-[48.6px] font-[Satoshi-Bold] ">
                 Formal
               </span>
@@ -175,13 +217,13 @@ export default function Homepage() {
           </div>
           <div className="flex flex-col lg:flex-row gap-3 lg:gap-6  ">
             <div className="relative bg-white h-[190px] lg:h-[289px] min-w-[70%] rounded-[20px]">
-              <div className=" w-full h-full  bg-[60px_-82px]  min-[580px]:bg-[300px_-80px] lg:bg-[100px_-160px] bg-[length:389px_311px] lg:bg-[length:500px_600px]   rounded-[20px] bg-no-repeat   bg-[url('../public/party.png')]"></div>
+              <div className=" w-full h-full  bg-[20px_-82px]  min-[580px]:bg-[300px_-80px] lg:bg-[100px_-160px] xl:bg-[400px_-120px] bg-[length:389px_311px] lg:bg-[length:500px_600px]   rounded-[20px] bg-no-repeat   bg-[url('../public/party.png')]"></div>
               <span className="absolute z-[1] top-[25px] left-[24px] lg:left-[36px] text-[24px] leading-[32.4px] lg:text-[36px] lg:leading-[48.6px] font-[Satoshi-Bold] ">
                 Party
               </span>
             </div>
             <div className="relative bg-white h-[190px] lg:h-[289px] min-w-[30%] rounded-[20px]">
-              <div className=" w-full h-full rounded-[20px]  bg-[70px_-90px] min-[580px]:bg-[350px_-80px] lg:bg-[40px_-150px] bg-[length:285px_425px] lg:bg-[length:250px_700px] bg-no-repeat  bg-[url('../public/gym.png')]"></div>
+              <div className=" w-full h-full rounded-[20px]  bg-[60px_-90px] min-[580px]:bg-[350px_-80px] lg:bg-[40px_-150px] xl:bg-[170px_-120px] bg-[length:285px_425px] lg:bg-[length:250px_700px] bg-no-repeat  bg-[url('../public/gym.png')]"></div>
               <span className="absolute z-[1] top-[25px] left-[24px] lg:left-[36px] text-[24px] leading-[32.4px] lg:text-[36px] lg:leading-[48.6px] font-[Satoshi-Bold] ">
                 Gym
               </span>

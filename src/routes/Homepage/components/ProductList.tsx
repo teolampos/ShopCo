@@ -33,8 +33,9 @@ function ProductList({ title, products }: Props) {
       className={` pt-[50px] pb-[40px] mt-[20px] mx-[10px] lg:mx-[100px] min-h-[500px] flex flex-col items-center ${
         title === ProductSort.NEW_ARRIVALS && "border-b-2"
       }  border-[#0000001A]`}
+      id={title === ProductSort.NEW_ARRIVALS ? "newArrivals" : "topSelling  "}
     >
-      <p className="text-center  text-[32px] leading-[38.4px] lg:text-[48px] lg:leading-[57.6px] font-[Integral-FC]  ">
+      <p className="text-center  text-[32px] leading-[38.4px] lg:text-[48px] lg:leading-[57.6px] font-[Integral-FC]">
         {title}
       </p>
 
