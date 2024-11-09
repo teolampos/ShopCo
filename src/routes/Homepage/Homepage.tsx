@@ -3,7 +3,7 @@ import CloseIcon from "./components/CloseIcon";
 import CartIcon from "./components/CartIcon";
 import AcountIcon from "./components/AcountIcon";
 import ArrowDown from "./components/ArrowDown";
-import SearchIcon from "./components/SearchIcon";
+import SearchIcon, { SearchIconBold } from "./components/SearchIcon";
 import StarIcon from "./components/StarIcon";
 import ProductList, { ProductSort } from "./components/ProductList";
 import EmailIcon from "./components/EmailIcon";
@@ -16,6 +16,7 @@ import MasterCardIcon from "./components/MasterCardIcon";
 import PaypalIcon from "./components/PaypalIcon";
 import ApplePayIcon from "./components/ApplePay";
 import GooglePayAction from "./components/GooglePayIcon";
+import HamburgerIcon from "./components/HamburgerIcon";
 
 export default function Homepage() {
   const [products, setProducts] = useState([]);
@@ -35,27 +36,33 @@ export default function Homepage() {
     <div className="min-h-screen max-w-full bg-white relative">
       {/*Sales Banner*/}
       {showBanner && (
-        <div className="bg-black h-[38px] max-w-full flex justify-center  items-center sticky top-0 z-10">
-          <span className="text-white text-[14px] leading-[18.9px]">
+        <div className="bg-black max-w-full h-[34px] sm:h-[38px] text-[12px] leading-[16.2px] sm:text-[14px] sm:leading-[18.9px] text-white font-[Satoshi] flex justify-center  items-center sticky top-0 z-10">
+          <span className="">
             Sign up and get 20% off your first order.
-            <a
-              href="/"
-              className="text-white text-sm  font-semibold underline leading-[18.9px]"
-            >
+            <a href="/" className=" underline">
               Sign Up Now
             </a>
           </span>
-          <CloseIcon className=" w-[20px] h-[20px] relative left-[33%] cursor-pointer" />
+          <CloseIcon
+            setShowBanner={setShowBanner}
+            className="hidden lg:block w-[20px] h-[20px] relative left-[33%] cursor-pointer"
+          />
         </div>
       )}
 
       {/*Top Section*/}
-      <div className=" ml-[10px] px-[120px] pt-[20px] bg-[#F2F0F1]  relative ">
-        <div className=" max-w-full h-[48px]  py-[40px]  flex items-center gap-[40px]">
-          <a href="/" className="text-[40px] font-[Integral-FC]">
-            SHOP.CO
-          </a>
-          <ul className="w-[400px] flex justify-around  items-center text-[16px] gap-[24px] font-[Satoshi]">
+      <div className=" lg:ml-[10px]  lg:px-[30px] xl:px-[60px]  bg-[#F2F0F1]  relative ">
+        <div className="w-full h-[48px]  py-[30px] lg:py-[50px] px-[15px]  lg:px-0 flex justify-between items-center  lg:gap-[40px] bg-white lg:bg-transparent">
+          <div className="flex items-baseline gap-3">
+            <HamburgerIcon className="block lg:hidden w-[18.75px] h-[14.25px] cursor-pointer" />
+            <a
+              href="/"
+              className="text-[25.2px] lg:text-[40px] leading-[30.24px] lg:leading-[38.4px] font-[Integral-FC]"
+            >
+              SHOP.CO
+            </a>
+          </div>
+          <ul className="hidden lg:min-w-[350px] lg:flex justify-around  items-center text-[16px] leading-[21.6px ] gap-[24px] font-[Satoshi]">
             <li className="flex items-center gap-[2px]">
               <a href="/" className="flex items-center gap-[4px]">
                 Shop
@@ -66,7 +73,7 @@ export default function Homepage() {
             <a href="/">New Arrivals</a>
             <a href="/">Brands</a>
           </ul>
-          <div className="min-w-[677px] flex items-center gap-[12px] py-[12px] px-[16px]  ">
+          <div className="hidden w-[577px] lg:flex items-center gap-[12px] py-[12px] px-[16px] ">
             <button className="cursor-pointer">
               <SearchIcon className="w-[24px] h-[24px] font-extrabold" />
             </button>
@@ -76,57 +83,63 @@ export default function Homepage() {
               placeholder="Search for products..."
             />
           </div>
-          <div className="flex items-center gap-[14px] relative left-52">
+          <div className="lg:w-[20.5%] flex lg:justify-end items-center  gap-[7px] lg:gap-[14px]">
             <a href="/">
-              <CartIcon className="w-[24px] h-[24px] font-extrabold " />
+              <SearchIconBold className="block lg:hidden w-[20.27px] lg:w-[24px] h-[20.27px] lg:h-[24px] " />
             </a>
             <a href="/">
-              <AcountIcon className="w-[24px] h-[24px] font-extrabold" />
+              <CartIcon className="w-[20.27px] lg:w-[24px] h-[20.27px] lg:h-[24px] " />
+            </a>
+            <a href="/">
+              <AcountIcon className="w-[20.27px] lg:w-[24px] h-[20.27px] lg:h-[24px] " />
             </a>
           </div>
         </div>
-        <div className="max-w-full flex  ">
-          <div className="w-[50%] mt-[200px] flex flex-col gap-[20px]  ">
-            <span className="max-w-[67%] text-[64px] font-[Integral-FC] leading-[64px] ">
+        <div className="pt-[40px] flex  flex-col lg:flex-row ">
+          <div className="lg:w-[50%] px-[15px] flex flex-col gap-[20px] ">
+            <p className="sm:max-lg:w-[70%] text-[36px] lg:text-[54px] xl:text-[64px] leading-[34px] lg:leading-[64px] font-[Integral-FC]  ">
               FIND CLOTHES THAT MATCH YOUR STYLE
-            </span>
-            <span className="max-w-[67%] text-[16px] text-[#00000099] font-[Satoshi]">
+            </p>
+            <span className="sm:max-lg:w-[70%] text-[14px] leading-[20px] lg:text-[16px] lg:leading-[22px] text-[#00000099] font-[Satoshi] ">
               Browse through our diverse range of meticulously crafted garments,
               designed to bring out your individuality and cater to your sense
               of style.
             </span>
-            <button className="w-[210px] h-[52px] py-[15px] px-[54px] border-black border-[1px] rounded-[62px] bg-black text-white font-[Satoshi] hover:bg-white hover:text-black">
+            <button className="sm:w-[40%] align-left  py-[15px] px-[54px] border-black border-[1px] rounded-[62px] bg-black text-white font-[Satoshi] hover:bg-white hover:text-black">
               Shop Now
             </button>
-            <div className="w-[80%] mt-[25px] flex gap-[32px] ">
+            <div className=" sm:max-lg:w-[80%] lg-w-full  lg:mt-[25px] mb-[20px] flex  flex-wrap justify-center sm:max-lg:justify-start  gap-5 xl:flex-nowrap lg:justify-normal lg:gap-[32px]   ">
               <div className="pr-[20px] flex flex-col border-r-[1px] border-gray-300 ">
-                <span className="font-[Satoshi-Bold]  text-[40px] ]">200+</span>
-                <span className="text-[#00000099] font-[Satoshi] ">
+                <span className=" text-[24px] leading-[32.4px] lg:text-[40px] lg:leading-[54px] font-[Satoshi-Bold]">
+                  200+
+                </span>
+                <span className="text-[#00000099] text-[12px] leading-[22px] lg:text-[16px] lg:leading-[22px]  font-[Satoshi] ">
                   International Brands
                 </span>
               </div>
-              <div className="pr-[20px] flex flex-col border-r-[1px] border-gray-300 ">
-                <span className="font-[Satoshi-Bold]  text-[40px] ]">
+              <div className="pr-[10px] flex flex-col min-[440px]:border-r-[1px] min-[430px]:border-gray-300 ">
+                <span className=" text-[24px] leading-[32.4px] lg:text-[40px] lg:leading-[54px] font-[Satoshi-Bold]">
                   2,000+
                 </span>
-                <span className="text-[#00000099] font-[Satoshi]">
+                <span className="text-[#00000099] text-[12px] leading-[22px] lg:text-[16px] lg:leading-[22px]  font-[Satoshi] ">
                   High Quality Products
                 </span>
               </div>
               <div className="flex flex-col  ">
-                <span className="font-[Satoshi-Bold]  text-[40px] ]">
+                <span className=" text-[24px] leading-[32.4px] lg:text-[40px] lg:leading-[54px] font-[Satoshi-Bold]">
                   30,000+
                 </span>
-                <span className="text-[#00000099] font-[Satoshi]">
+                <span className="text-[#00000099] text-[12px] leading-[22px] lg:text-[16px] lg:leading-[22px]  font-[Satoshi] ">
                   Happy Customers
                 </span>
               </div>
             </div>
           </div>
-          <div className="w-[50%]  relative ">
-            <StarIcon className="w-[56px] h-[50px] absolute top-[300px] left-[40px] z-[1]" />
-            <StarIcon className="w-[104px] h-[92px] absolute top-[80px] right-[70px] z-[1]" />
-            <div className="w-[100%] h-[680px]  bg-[0px_-150px] bg-no-repeat bg-cover bg-[url('https://s3-alpha-sig.figma.com/img/b26f/ea69/ccfd8aa5825862cdb9604a4fb4930464?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=HqczUMWJcf-mwUUzxeBvTwPf6BagQkr6GIJtgoh25KXW81bSWucBJdLI-ubV9~YgF-TfpTaWp3Ld4X-7eRitSXEBpnJYDi45lGE-iiCaV2Tg~FUZrMJWabeEtdHevaavo7iW1~ySuu9n5AZ8ysUQVaZng21vrHcdjeuy1F~FlpnsWHjWrCJpH6xrjPkdS5mCFZ0ngRRUnA8fXmTuNliI779YrFxzVg81N46IRQQobc2EL9RxAmmD2eEF8fgDthjcRRPzgfH66AuUWsnUsoYO5uXXlRyxemc9Me-qwB2g3Izh6k0f0FObIRIuuh9nxkma8Xg9luC3U-~WzoXz5ZxJ9Q__')] " />
+          <div className="lg:w-[50%]">
+            <div className="relative w-[100%] min-h-[400px] lg:min-h-full  bg-[length:390px_600px] lg:bg-[length:600px_1000px] lg:bg-[-50px_-130px] bg-center  bg-no-repeat   bg-[url('../public/couple.jpeg')] ">
+              <StarIcon className="w-[44px] lg:w-[56px] h-[41.65px] lg:h-[50px] absolute top-[20%] left-[3%] sm:top-[40%] sm:left-[15%] md:top[50%] md:left-[20%] lg:left-[5%]  z-[1]" />
+              <StarIcon className="w-[76px] lg:w-[104px] h-[71.95px] lg:h-[92px] absolute top-0 lg:top-[10%] right-[2%] sm:right-[15%]  md:right-[20%] lg:right-[3%] xl:right-[20%] z-[1]" />
+            </div>
           </div>
         </div>
       </div>
@@ -140,36 +153,36 @@ export default function Homepage() {
       <ProductList title={ProductSort.TOP_SELLING} products={products} />
 
       {/*Browse By Dress Style Section */}
-      <div className="min-h-[850px] py-[70px] mx-[100px] bg-[#F0F0F0] rounded-[40px]">
-        <p className=" text-[48px] font-[Integral-FC] leading-[57.6px] text-center">
+      <div className="min-h-[850px] mx-[10px] py-[30px] lg:py-[70px] md:mx-[80px] lg:mx-[60px] lg:px-[10px] bg-[#F0F0F0] rounded-[40px]">
+        <p className=" text-[32px] leading-[36px] lg:text-[48px] lg:leading-[57.6px] text-center px-[5px] mt-[30px] font-[Integral-FC]  ">
           BROWSE BY DRESS STYLE
         </p>
 
-        <div className="mt-[70px] mx-[64px] flex flex-col gap-6 ">
-          <div className="flex gap-6 ">
-            <div className="relative bg-white h-[289px] min-w-[30%] rounded-[20px]">
-              <div className=" w-full h-full scale-x-[-1] rounded-[20px] bg-[center_40%] bg-no-repeat  bg-[url('https://s3-alpha-sig.figma.com/img/e1b7/74ab/a32d9a769caba77c08e107a9198dcd6d?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TfxawzCE1m0Ok-iEqTw-ZWBgDFF9eTGy9AMq-~BHjyfTVWjYA7Awpmvc9TLJpdFvuCx8XV-1RXvKPITrrmukR5b4uCd3~3qCyzbq0R6NfMBpOcB~KvVu3JNXUoy2S5zjThpSshGnu0gMI-NHbGffRBiNDOeVtC~sGKM0NEpbZMv1UqgeL-tdRVgrX6G1c2lL0PLsW10a290j0oPZ~bTib99ukUc30Mp3mPt2gtz01IT5-Zbaz7t5OzTg589zds~yoZrmLnzn1ORw3JZpDJ-aDUkXgR79Mkd9yU4OShDXYKDlHm9L4Oe-67MsweBwPswkiqVhH3zqtjWyacb4QpOKAA__')]"></div>
-              <span className="absolute z-[1] top-[25px] left-[36px]  text-[36px] font-[Satoshi-Bold] leading-[48.6px]">
-                Casusal
+        <div className="mt-[30px] lg:mt-[70px] mx-[20px]  lg:mx-[44px] flex flex-col gap-3 lg:gap-6 ">
+          <div className="flex flex-col lg:flex-row gap-3 lg:gap-6 ">
+            <div className="relative bg-white  h-[190px] lg:h-[289px] min-w-[30%] rounded-[20px]">
+              <div className=" w-full h-full scale-x-[-1] bg-[length:572px_383px] lg:bg-[length:500px_783px] bg-[-110px_-80px] lg:bg-[-120px_-180px]  bg-no-repeat  rounded-[20px] bg-[url('../public/casual.png')]"></div>
+              <span className="absolute z-[1] top-[25px]  left-[24px] lg:left-[36px] text-[24px] leading-[32.4px] lg:text-[36px] lg:leading-[48.6px] font-[Satoshi-Bold] ">
+                Casual
               </span>
             </div>
-            <div className="relative bg-white h-[289px] min-w-[70%] rounded-[20px]">
-              <div className=" rounded-[20px] w-full h-full bg-[300px_-120px] bg-cover  bg-no-repeat  bg-[url('https://s3-alpha-sig.figma.com/img/e46e/d6ac/8bdbe2c750dcc6e834bf1d98a4a73b29?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=PBSFxambHDWfOmxlWi2llSah7u~sA9hPsRbXec2sLtBsNfyX7Jzt4p8Au5IFH02vTa~y2IjWh-UqpZZf7NEniPmehYTd1IdqgKZef7b9CkfqsPjcLZGU3yWcK71XyuRqxG0hGoMY0tF6QE-3X8lrDMAFARYN7wUH9XnSeJ-MKPnyOdbbwH5hEel4fgp~X3QEo-BU2-iv4pdES0lhzvNu97QaxD9kJX1qqfx3xypV-5MtGgo4hsLFoyu3wrb30G4J9UjPGoUEcQIdwgtz2WYeg~b8eF~Xf9CbSCBM~enpCQtlzhU16y6w0dUuAzhOtm~CGRBr-ic2moIZmPvqRgM6DA__')]"></div>
-              <span className="absolute z-[1] top-[25px] left-[36px]  text-[36px] font-[Satoshi-Bold] leading-[48.6px]">
+            <div className="relative bg-white h-[190px] lg:h-[289px] min-w-[70%] rounded-[20px]">
+              <div className=" rounded-[20px] w-full h-full  bg-[-17px_-80px] min-[580px]:bg-[300px_-80px] lg:bg-[120px_-120px] bg-[length:709px_470px] lg:bg-[length:800px_700px] bg-no-repeat  bg-[url('../public/formal.png')]"></div>
+              <span className="absolute z-[1] top-[25px] left-[24px] lg:left-[36px] text-[24px] leading-[32.4px] lg:text-[36px] lg:leading-[48.6px] font-[Satoshi-Bold] ">
                 Formal
               </span>
             </div>
           </div>
-          <div className="flex gap-6 ">
-            <div className="relative bg-white h-[289px] min-w-[70%] rounded-[20px]">
-              <div className=" w-full h-full bg-[400px_-150px] rounded-[20px] bg-no-repeat  bg-[url('https://s3-alpha-sig.figma.com/img/aa19/c69e/82cd85a823c989c1c8631bd976e2cbfb?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Z~Qau4QA3dVYOOg-72mwnnQyNxmmJQQQorB1DyjX7Nvq1yqHrwkSbSdpL1uz5X6h-VPgpWKvPzF0O6rbdUP3HIsHOp4lI64s8Y0bEMCYMcE4rycadSRwfCxZtCbGJ05jkl11utj4E-39ToGH5ET-6bMGbxAcJpsnQbTLQrDiHKPQeIR-xqO-oT37V~fKkkv8ZTpkoMIWhu-VCwDmopnDbOeoEo9bCzRHHl~hseH3g5nfubcDPzvfn6xXZoHjdeuBcHdwERlNW5QoRuicY7JHeKQUU7gRYRArYNWnn2Ddsmjk8M5Uhk6bSIyfnkB~la1ZTgrRxtEiWeImPMuCXnILMA__')]"></div>
-              <span className="absolute z-[1] top-[25px] left-[36px]  text-[36px] font-[Satoshi-Bold] leading-[48.6px]">
+          <div className="flex flex-col lg:flex-row gap-3 lg:gap-6  ">
+            <div className="relative bg-white h-[190px] lg:h-[289px] min-w-[70%] rounded-[20px]">
+              <div className=" w-full h-full  bg-[60px_-82px]  min-[580px]:bg-[300px_-80px] lg:bg-[100px_-160px] bg-[length:389px_311px] lg:bg-[length:500px_600px]   rounded-[20px] bg-no-repeat   bg-[url('../public/party.png')]"></div>
+              <span className="absolute z-[1] top-[25px] left-[24px] lg:left-[36px] text-[24px] leading-[32.4px] lg:text-[36px] lg:leading-[48.6px] font-[Satoshi-Bold] ">
                 Party
               </span>
             </div>
-            <div className="relative bg-white h-[289px] min-w-[30%] rounded-[20px]">
-              <div className=" w-full h-full rounded-[20px] bg-[80px_-150px] bg-cover bg-no-repeat  bg-[url('https://s3-alpha-sig.figma.com/img/fce6/58e0/c17a220fe8bfb1126626f3ab58a761ec?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XFAKCvqOT9nzlA9CoyoGysAmK4gA8PeQJW0~F0SW~nRPRBLN03Y9zSDCwUdgY6joDrWvA4YhNUDhcY7aJaDXLyEHHPdzCP1bsUv19PobkcKBDHtBii0JZsGcNyy5f~6exu8MoC4XJzVe-sIw5FazEqQL2RhUXZI3~E1A20597YQ8Y9docNRQNtQjhQFfVNSHvuAfpQpakx8vErCnDX8kvIKXKJu0YYMHtybx7LndX0Vha6OpJ2OR3IuFgng5uYVLxJYvp8Tg0rc4rp-IrVaz7LI7e7Zkft4mT4G~ex0AUQCjnqUfcWPolRTUShjDGj-l8r6G7wLL9rnCzAZXdICLmA__')]"></div>
-              <span className="absolute z-[1] top-[25px] left-[36px]  text-[36px] font-[Satoshi-Bold] leading-[48.6px]">
+            <div className="relative bg-white h-[190px] lg:h-[289px] min-w-[30%] rounded-[20px]">
+              <div className=" w-full h-full rounded-[20px]  bg-[70px_-90px] min-[580px]:bg-[350px_-80px] lg:bg-[40px_-150px] bg-[length:285px_425px] lg:bg-[length:250px_700px] bg-no-repeat  bg-[url('../public/gym.png')]"></div>
+              <span className="absolute z-[1] top-[25px] left-[24px] lg:left-[36px] text-[24px] leading-[32.4px] lg:text-[36px] lg:leading-[48.6px] font-[Satoshi-Bold] ">
                 Gym
               </span>
             </div>
@@ -178,95 +191,169 @@ export default function Homepage() {
       </div>
 
       {/*Footer Section */}
-      <div className=" h-[500px] mt-[100px] mr-[9px] px-[100px] relative bg-[#F0F0F0]">
+      <div className=" mt-[250px] lg:mr-[9px] px-[15px] py-[110px]  pb-[70px]  relative bg-[#F0F0F0] ">
         {/*Subscribe Section */}
-        <div className=" h-[180px]  px-[64px] py-[36px] relative bottom-[70px] bg-black rounded-[20px] flex justify-between items-center">
-          <p className=" max-w-[40%] text-[40px] text-white font-[Integral-FC] leading-[45px]">
+        <div className=" min-h-[293px] px-[20px] lg:px-[64px] py-[36px] absolute top-[-170px] right-[3%] left-[3%] bg-black rounded-[20px] flex flex-col lg:flex-row gap-6 lg:justify-between items-center">
+          <p className=" lg:max-w-[40%] text-[32px] leading-[35px] lg:text-[40px] lg:leading-[45px] text-center lg:text-left text-white font-[Integral-FC] ">
             STAY UPTO DATE ABOUT OUR LATEST OFFERS
           </p>
-          <div className=" w-[400px] h-[130px] flex flex-col justify-center gap-2  ">
+          <div className=" flex flex-col justify-center gap-2  ">
             <div className=" flex gap-2 items-center py-[12px] px-[16px] bg-white rounded-[62px]">
               <EmailIcon className="w-[24px] h-[24px] " />
               <input
                 type="text"
                 placeholder="Enter your email address"
-                className="outline-none leading-[21.6px] text-black font-[Satoshi] "
+                className="outline-none text-[14px] lg:text-[16px] leading-[18.9px] lg:leading-[21.6px] text-black font-[Satoshi] "
               />
             </div>
-            <button className="py-[12px] px-[16px] bg-white rounded-[62px] text-center font-[Satoshi-Bold]">
+            <button className="py-[12px] px-[16px] bg-white rounded-[62px] text-[14px] lg:text-[16px] leading-[18.9px] lg:leading-[21.6px] text-center font-[Satoshi-Bold]">
               Subscribe to Newsletter
             </button>
           </div>
         </div>
 
         {/*Info section */}
-        <div className="h-177px pb-[50px] border-b-2 border-[#0000001A] flex justify-between">
-          <div className="w-[248px] flex flex-col gap-[25px] ">
-            <p className="text-[34.45px] font-[Integral-FC] leading-[22px] ">
+        <div className=" mt-[80px]  pb-[50px] border-b-2 border-[#0000001A] flex flex-col gap-6 lg:justify-between ">
+          <div className=" flex flex-col  lg:gap-[25px] ">
+            <p className=" text-[28.85px] leading-[34.62px] lg:text-[34.45px] lg:leading-[40.15px] font-[Integral-FC]   ">
               SHOP.CO
             </p>
-            <p className="text-[14px] text-[#00000099] font-[Satoshi] leading-[22px] ">
+            <p className="text-[12px] leading-[20px] lg:text-[14px] lg:leading-[22px] text-[#00000099] font-[Satoshi] ">
               We have clothes that suits your style and which you’re proud to
               wear. From women to men.
             </p>
-            <div className="max-w-[70%] flex items-center gap-2">
+            <div className="max-w-[70%] flex items-center gap-2 mt-4">
               <TwitterIcon className="p-2 w-[30px] h-[30px] border-[1px] border-solid border-[#00000033] bg-white rounded-2xl cursor-pointer" />
               <FacebookIcon className="p-2 w-[30px] h-[30px] border-[1px] border-solid border-[#00000033] bg-white rounded-2xl cursor-pointer" />
               <InstagramIcon className="p-2 w-[30px] h-[30px] border-[1px] border-solid border-[#00000033]  bg-white rounded-2xl cursor-pointer" />
               <GithubIcon className="p-2 w-[30px] h-[30px] border-[1px] border-solid border-[#00000033]  bg-white rounded-2xl cursor-pointer" />
             </div>
           </div>
-          <ul className="flex flex-col gap-2 font-[Satoshi] text-[#00000099]">
-            <li className="leading-[18px] font-[Satoshi] text-black mb-2">
-              COMPANY
-            </li>
-            <a href="/" className="text-[#00000099]">
-              About
-            </a>
-            <a href="/" className="text-[#00000099]">
-              Features
-            </a>
-            <a href="/" className="text-[#00000099]">
-              Work
-            </a>
-            <a href="/" className="text-[#00000099]">
-              Career
-            </a>
-          </ul>
-          <ul className="flex flex-col gap-2 font-[Satoshi] text-[#00000099]">
-            <li className="leading-[18px] font-[Satoshi] text-black mb-2">
-              HELP
-            </li>
-            <a href="/">Customer Support</a>
-            <a href="/">Delivery Details</a>
-            <a href="/">Terms & Conditions</a>
-            <a href="/">Privacy Policy</a>
-          </ul>
-          <ul className="flex flex-col gap-2 font-[Satoshi] text-[#00000099]">
-            <li className="leading-[18px] font-[Satoshi] text-black mb-2">
-              FAQ
-            </li>
-            <a href="/">About</a>
-            <a href="/">Features</a>
-            <a href="/">Work</a>
-            <a href="/">Career</a>
-          </ul>
-          <ul className="flex flex-col gap-2 font-[Satoshi] text-[#00000099]">
-            <li className="leading-[18px] font-[Satoshi] text-black mb-2">
-              RESOURCES
-            </li>
-            <a href="/">About</a>
-            <a href="/">Features</a>
-            <a href="/">Work</a>
-            <a href="/">Career</a>
-          </ul>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ul className="flex flex-col gap-2 font-[Satoshi] text-[#00000099]">
+              <li className="text-[14px] leading-[18px] lg:text-[16px]  tracking-[3px] font-[Satoshi-Bold] text-black mb-2">
+                COMPANY
+              </li>
+              <a
+                href="/"
+                className="text-[#00000099] text-[14px] leading-[16px] lg:text-[16px] lg:leading[19px]"
+              >
+                About
+              </a>
+              <a
+                href="/"
+                className="text-[#00000099] text-[14px] leading-[16px] lg:text-[16px] lg:leading[19px]"
+              >
+                Features
+              </a>
+              <a
+                href="/"
+                className="text-[#00000099] text-[14px] leading-[16px] lg:text-[16px] lg:leading[19px]"
+              >
+                Work
+              </a>
+              <a
+                href="/"
+                className="text-[#00000099] text-[14px] leading-[16px] lg:text-[16px] lg:leading[19px]"
+              >
+                Career
+              </a>
+            </ul>
+            <ul className="flex flex-col gap-2 font-[Satoshi] text-[#00000099]">
+              <li className="text-[14px] leading-[18px] lg:text-[16px] tracking-[3px] font-[Satoshi-Bold] text-black mb-2">
+                HELP
+              </li>
+              <a
+                href="/"
+                className="text-[#00000099] text-[14px] leading-[16px] lg:text-[16px] lg:leading[19px]"
+              >
+                Customer Support
+              </a>
+              <a
+                href="/"
+                className="text-[#00000099] text-[14px] leading-[16px] lg:text-[16px] lg:leading[19px]"
+              >
+                Delivery Details
+              </a>
+              <a
+                href="/"
+                className="text-[#00000099] text-[14px] leading-[16px] lg:text-[16px] lg:leading[19px]"
+              >
+                Terms & Conditions
+              </a>
+              <a
+                href="/"
+                className="text-[#00000099] text-[14px] leading-[16px] lg:text-[16px] lg:leading[19px]"
+              >
+                Privacy Policy
+              </a>
+            </ul>
+            <ul className="flex flex-col gap-2 font-[Satoshi] text-[#00000099]">
+              <li className="text-[14px] leading-[18px] lg:text-[16px] tracking-[3px] font-[Satoshi-Bold] text-black mb-2">
+                FAQ
+              </li>
+              <a
+                href="/"
+                className="text-[#00000099] text-[14px] leading-[16px] lg:text-[16px] lg:leading[19px]"
+              >
+                About
+              </a>
+              <a
+                href="/"
+                className="text-[#00000099] text-[14px] leading-[16px] lg:text-[16px] lg:leading[19px]"
+              >
+                Features
+              </a>
+              <a
+                href="/"
+                className="text-[#00000099] text-[14px] leading-[16px] lg:text-[16px] lg:leading[19px]"
+              >
+                Work
+              </a>
+              <a
+                href="/"
+                className="text-[#00000099] text-[14px] leading-[16px] lg:text-[16px] lg:leading[19px]"
+              >
+                Career
+              </a>
+            </ul>
+            <ul className="flex flex-col gap-2 font-[Satoshi] text-[#00000099]">
+              <li className="text-[14px] leading-[18px] lg:text-[16px] tracking-[3px] font-[Satoshi-Bold] text-black mb-2">
+                RESOURCES
+              </li>
+              <a
+                href="/"
+                className="text-[#00000099] text-[14px] leading-[16px] lg:text-[16px] lg:leading[19px]"
+              >
+                About
+              </a>
+              <a
+                href="/"
+                className="text-[#00000099] text-[14px] leading-[16px] lg:text-[16px] lg:leading[19px]"
+              >
+                Features
+              </a>
+              <a
+                href="/"
+                className="text-[#00000099] text-[14px] leading-[16px] lg:text-[16px] lg:leading[19px]"
+              >
+                Work
+              </a>
+              <a
+                href="/"
+                className="text-[#00000099] text-[14px] leading-[16px] lg:text-[16px] lg:leading[19px]"
+              >
+                Career
+              </a>
+            </ul>
+          </div>
         </div>
 
-        <div className="mt-[20px] flex justify-between">
-          <p className="text-[14px] text-[#00000099] font-[Satoshi] leading-[18.9px]  ">
+        <div className="mt-[20px] flex flex-col items-center gap-2 md:flex-row md:justify-between  ">
+          <p className="text-[14px] leading-[18.9px] text-[#00000099] font-[Satoshi]   ">
             Shop.co © 2000-2023, All Rights Reserved
           </p>
-          <div className="min-w-[17%]  flex justify-between gap-2 ">
+          <div className="min-w-[17%]  flex justify-between gap-1 lg:gap-2 ">
             <VisaIcon className="w-[46px] h-[30px] bg-white" />
             <MasterCardIcon className="w-[46px] h-[30px]  bg-white" />
             <PaypalIcon className="w-[46px] h-[30px]  bg-white" />
