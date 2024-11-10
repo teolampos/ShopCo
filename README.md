@@ -6,8 +6,9 @@ src ----> fonts (contains the fonts used in the webpage)
 
     ----> helpers (contains essential functions used through out our code)
 
-    ----> routes (contains one folder for each route in our app) --- components (components that make up the route's Main Component)
+    ----> routes (contains one folder for each route in our app) --- components (components that           make up the route's Main Component)
                                                                  --- Main component.tsx
+    ----> shared (contains shared components used by many routes)
 
 # Styling
 
